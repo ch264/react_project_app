@@ -20,11 +20,15 @@ const store = createStore(rootReducer,
 	applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
 	// store enhancers to pass in config so that in projectActioins the database is known
 	reduxFirestore(firebase),
-	reactReduxFirebase(firebase)
+	reactReduxFirebase(firebase, {attachAuthIsReady: true})
 	)
 );
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+store.firebaseAuthIsReady.then(() =>{
+	ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 
-serviceWorker.unregister();
+	serviceWorker.unregister();
+})
+
+

@@ -18,8 +18,9 @@ class CreateProject extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(this.state)
 		this.props.createProject(this.state)
+		// redirect user to home with history that is part of Router
+		this.props.history.push('/')
 	}
 
 	render() {

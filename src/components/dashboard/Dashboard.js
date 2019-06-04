@@ -3,6 +3,8 @@ import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
 // connects dashboard component with redux store
 import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
 class Dashboard extends Component {
 	render(){
@@ -26,11 +28,18 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+	console.log(state);
 	// return object that represents which state is attached to props
 	return {
 		// project is from rootreudcer and projects is from project reducer
-		projects: state.project.projects
+		projects: state.firestore.ordered.projects
 	}
 }
 
-export default connect(mapStateToProps)(Dashboard)
+// use two higher order components by using compose
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect([
+		{ collection: 'projects' }
+	])
+)(Dashboard)

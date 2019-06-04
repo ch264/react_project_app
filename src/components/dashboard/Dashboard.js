@@ -28,7 +28,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
+
 	// return object that represents which state is attached to props
 	return {
 		// project is from rootreudcer and projects is from project reducer
@@ -39,6 +39,7 @@ const mapStateToProps = (state) => {
 // use two higher order components by using compose
 export default compose(
 	connect(mapStateToProps),
+	// sync up with project collection in firestore
 	firestoreConnect([
 		{ collection: 'projects' }
 	])

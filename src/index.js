@@ -18,9 +18,10 @@ import firebase from './config/firebase'
 const store = createStore(rootReducer, 
 	compose(
 	applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-	// store enhancers to pass in config so that in projectActioins the database is known
+	// store enhancers to pass in config so that in projectActions the database is known
 	reduxFirestore(firebase),
-	reactReduxFirebase(firebase, {attachAuthIsReady: true})
+	// set configs on firebase enhancer to access user profile data from the collection called 'users' in firestore. we can now access it.
+	reactReduxFirebase(firebase, {useFirestoreForProfile: true, userProfile: 'users', attachAuthIsReady: true})
 	)
 );
 

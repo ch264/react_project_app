@@ -44,7 +44,7 @@ export default compose(
 	connect(mapStateToProps),
 	// sync up with project collection in firestore
 	firestoreConnect([
-		{ collection: 'projects' },
-		{ collection: 'notifications', limit: 4}
+		{ collection: 'projects', orderBy: ['createdAt', 'desc']},
+		{ collection: 'notifications', limit: 4, orderBy: ['time', 'desc']}
 	])
 )(Dashboard)

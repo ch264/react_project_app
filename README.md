@@ -1,69 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is deployed here: https://react-project-app-ch.firebaseapp.com
 
-## Available Scripts
+## React-Redux-Firebase Project App
 
-In the project directory, you can run:
+Build App that allows users to sign up, login and sign out with the help of the very talented Net Ninja Tutorials: https://www.youtube.com/watch?v=Oi4v5uxTY5o&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3
+Users can create new projects once they are signed in.
+When a new user signs up or a new project is being created, four notifications show up on the dashboard in real time.
+When a user clicks on a project they get.
+Users can only view or create projects and updates when signed in. 
 
-### `npm start`
+### Technologies used 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Frontend Framework : Materialize 
+JS Libarary: React js
+State Management: Redux Database
+Middleware to hold dispatch: Thunk Database and Deploy: Firestore/Firebase
+Auth: Firebase
+Real Time Notification Updates: Cloud Functions 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Future Development
 
-### `npm test`
+users should be able to edit and delete their projects.
+users should be able to define if they want their projects to be private or public.
+users should be able to change their background image.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# react_project_app
+### Learnings
+How React state and props are set and sent down components or called up with callback functions.
+How to work with Firebase and Firestore, which was much easier than Heroku.
+Set configurations in Firebase for different users.
+How to write cloud functions in order to update notifications in real time. They run code in response to events and spin up and down in environment.
+Order output data with Firebase as opposed to writing JS code.
+Learned about materialize cdn and how to use it.

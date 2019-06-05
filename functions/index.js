@@ -13,6 +13,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 	response.send("Hello Project People!");
 });
 
+// notification on creation of project with http request
 const createNotification = (notification => {
 	return admin.firestore().collection('notifications')
 		.add(notification)
@@ -33,3 +34,21 @@ exports.projectCreated = functions.firestore
 
 	return createNotification(notification)
 })
+
+
+
+// cloud function for user signup with auth trigger. Receive user in callback function
+exports.userSignedUp = functions.auth.user()
+	.onCreate(user => {
+		// reference document inside users collection in the database
+		return admin.firestore().collection('users').doc(user.uid).get().then(doc => {
+			const newUser = doc.data();
+			const notification = {
+				content: 'User Joined',
+				user: `${newUser.firstName} ${newUser.lastName}`,
+				time: admin.firestore.FieldValue.serverTimestamp()
+			}
+			return createNotification(notification)
+		})
+})
+
